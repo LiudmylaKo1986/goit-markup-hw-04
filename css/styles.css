@@ -371,7 +371,6 @@ body {
 }
 
 .section-portfolio-title {
-
     margin-bottom: 72px;
     text-align: center;
 }
@@ -379,28 +378,48 @@ body {
 .section-portfolio-roster {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     column-gap: 24px;
     row-gap: 48px;
 }
 
 .portfolio-list{
     width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1)
 } 
 
-.portfolio-cover-text {
+.portfolio-container-box {
+    position: relative;
+    overflow: hidden;
+
+.overlay {
     position: absolute;
     top: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: var(--CLOUD, #F4F4FD);
-    padding: 40px 32px;
-    background-color: #4D5AE5;
-    height: 100%;
+    left: 0;
     width: 100%;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.32px;
+    background-color: var(--color-web);
+    color: var(--portfolio-filter-btn-norm-bg);
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    /*для контролю переповнення контенту*/
+    overflow: auto;
     transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    ;
 }
+
+.portfolio-list:hover .overlay,
+.ideas-item:focus .overlay {
+    transform: translateY(0%);
     
 .container-project {
     padding: 32px 16px;
@@ -417,11 +436,6 @@ body {
 .footer-content {
     background-color: var(--colour-navy-blue);
     padding: 100px 0;
-}
-
-.omega {
-    display: flex;
-    flex-direction: column;
 }
 
 .footer-container{
